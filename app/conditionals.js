@@ -1,8 +1,7 @@
 //1. Given two numbers, write a function that will return  the larger number
 
 function largerNum(num1, num2) {
-    // you code here
-
+    return Math.max(num1, num2);
 }
 
 // 2. Given two numbers, amount correct and amount possible of a test, return the corresponding letter grade.
@@ -14,11 +13,32 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function testGrader(score, possible) {
+    //     if ((score / possible) * 100 >= 90) {
+    //         return "A";
+    //     }
+    //     else if ((score / possible) * 100 >= 80) {
+    //         return "B";
+    //     }
+    //     else if ((score / possible) * 100 >= 70) {
+    //         return "C";
+    //     }
+    //     else if ((score / possible) * 100 >= 60) {
+    //         return "D";
+    //     }
+    //     else {
+    //         return "F";
+    //     }
+    // }
+    // Or you can do it this way for short using the ternary operator ?
 
+    let grade = ((score / possible) * 100)
+    return (grade >= 90) ? "A"
+        : (grade >= 80) ? "B"
+            : (grade >= 70) ? "C"
+                : (grade >= 60) ? "D"
+                    : "F"
 }
 
-
-// --------------------------------------------
 
 
 // 3. Given an integer that represents an hour in the day (1 - 24), write a function that returns "good morning", "good afternoon", "good evening", or "good night" based off of what hour it is. You'll need to think in military time.
@@ -29,13 +49,18 @@ function testGrader(score, possible) {
 //Make sure your ranges are inclusive
 
 function timeOfDayGreeting(hour) {
-    // you code below
-
+    return (hour >= 5 && hour <= 11) ? "Good Morning"
+        : (hour >= 12 && hour <= 17) ? "Good Afternoon"
+            : (hour >= 18 && hour <= 21) ? "Good Evening"
+                : "Good Night"
 }
 
 //4. Write a function that will take in a number and return 'fever' if it indicates a fever (over 98.6) and additionally if the person should go to the hospital (at or above 103) 'fever go to hospital' (hint: try this with string concatenation), if it is under return 'no fever'
 function isFever(temp) {
-
+    return (temp > 98.6 && temp < 103) ? "fever"
+        : (temp >= 103) ? "fever go to hospital"
+            : (temp <= 98.6) ? "no fever"
+                : "check device"
 }
 
 //5. Write a function that takes in a car object, if it is not moving then return true
@@ -47,6 +72,13 @@ let myCar = {
 }
 
 function isStopped(car) {
+    if (car.moving == false) {
+        return true
+    }
+    else if (car.moving !== false) {
+        return false
+    }
+
 
 }
 
@@ -59,4 +91,10 @@ let dish = {
 
 function washDish(dish) {
 
+    if (dish.yourDish == true && dish.isDirty == true) {
+        return true
+    }
+    else if (dish.yourDish == false || dish.isDirty == false) {
+        return false
+    }
 }
